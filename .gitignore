@@ -50,3 +50,10 @@ config.json
 .idea/
 .DS_Store
 Thumbs.db
+
+
+# misc file
+.build_package.py
+.build.bat
+.setup.py
+.deployment.md
