@@ -26,15 +26,15 @@ It includes an offline SAST engine (via Bandit) and launches a glowing, interact
 Install AI Secure Review via pip from your compiled wheel package:
 
 ```bash
-pip install secure_review-1.0.0-py3-none-any.whl
+pip install secure-review
 ```
 
 ### For Developers (Build from Source)
 Clone the repository and compile the package automatically using our build script:
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/security-cli.git
-cd security-cli
+git clone https://github.com/rajatbhatia1998/secure-review.git
+cd secure-review
 
 # Run one-click compilation (requires Python build dependencies & npm)
 .\build.bat
