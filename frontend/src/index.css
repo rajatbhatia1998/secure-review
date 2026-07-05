@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+:root {
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Color System */
+  --bg-primary: #080810;
+  --bg-secondary: #0f101d;
+  --bg-tertiary: #16172d;
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-active: rgba(147, 51, 234, 0.4);
+  
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  
+  /* Neons */
+  --neon-purple: #a855f7;
+  --neon-cyan: #06b6d4;
+  --neon-emerald: #10b981;
+  --neon-rose: #f43f5e;
+  --neon-amber: #f59e0b;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neon-purple);
+}
+
+/* Utility Classes */
+.glass {
+  background: rgba(15, 16, 29, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+}
+
+.glass-card {
+  background: linear-gradient(135deg, rgba(22, 23, 45, 0.4) 0%, rgba(15, 16, 29, 0.6) 100%);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+  border-color: rgba(168, 85, 247, 0.3);
+  box-shadow: 0 8px 30px rgba(168, 85, 247, 0.08);
+  transform: translateY(-2px);
+}
+
+.glow-btn {
+  background: linear-gradient(90deg, var(--neon-purple), #7c3aed);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(168, 85, 247, 0.3);
+  transition: all 0.2s ease-in-out;
+}
+
+.glow-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(168, 85, 247, 0.5);
+}
+
+.glow-btn:active {
+  transform: translateY(0);
+}
+
+.glow-btn-cyan {
+  background: linear-gradient(90deg, var(--neon-cyan), #0891b2);
+  box-shadow: 0 4px 14px rgba(6, 182, 212, 0.3);
+}
+
+.glow-btn-cyan:hover {
+  box-shadow: 0 6px 20px rgba(6, 182, 212, 0.5);
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, var(--neon-cyan) 0%, var(--neon-purple) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+/* Animations */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(168, 85, 247, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(168, 85, 247, 0.6);
+  }
+}
+
+.pulsing-node {
+  animation: pulseGlow 2s infinite ease-in-out;
+}
+
+@keyframes progressFlow {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 40px 0;
+  }
+}
+
+.progress-bar-animated {
+  background-image: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.15) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0.15) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 40px 40px;
+  animation: progressFlow 1s linear infinite;
+}
+
+/* Custom badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 8px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.badge-critical {
+  background: rgba(244, 63, 94, 0.1);
+  color: var(--neon-rose);
+  border: 1px solid rgba(244, 63, 94, 0.3);
+}
+
+.badge-high {
+  background: rgba(244, 63, 94, 0.08);
+  color: var(--neon-rose);
+  border: 1px solid rgba(244, 63, 94, 0.2);
+}
+
+.badge-medium {
+  background: rgba(245, 158, 11, 0.1);
+  color: var(--neon-amber);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.badge-low {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--neon-emerald);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+/* Diff Highlighting */
+.diff-added {
+  background-color: rgba(16, 185, 129, 0.15);
+  color: #a7f3d0;
+  display: block;
+}
+
+.diff-removed {
+  background-color: rgba(244, 63, 94, 0.15);
+  color: #fecdd3;
+  display: block;
+}
