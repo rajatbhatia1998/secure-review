@@ -23,8 +23,23 @@ It includes an offline SAST engine (via Bandit) and launches a glowing, interact
 
 ## 📦 Installation
 
-Install AI Secure Review via pip from your compiled wheel package:
+It is highly recommended to run this package inside a virtual environment to prevent dependency conflicts.
 
+### 1. Set Up a Virtual Environment
+**On Windows:**
+```bash
+python -m venv venv
+.\venv\Scripts\activate
+```
+
+**On macOS / Linux:**
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+### 2. Install the Package
+Install AI Secure Review via pip:
 ```bash
 pip install secure-review
 ```
