@@ -370,7 +370,7 @@ def doctor():
 
 def print_interactive_help():
     console.print("\n[bold cyan]Interactive Console Commands[/bold cyan]:")
-    console.print("  [bold green]/review [path][/bold green] : Scan a local codebase folder (default: [cyan].[/cyan])")
+    console.print("  [bold green]/review [path][/bold green] : Scan a local codebase folder")
     console.print("  [bold green]/dashboard[/bold green]     : Open the UI dashboard in the web browser")
     console.print("  [bold green]/config[/bold green]        : Configure LLM models and local API keys")
     console.print("  [bold green]/providers[/bold green]     : Show current active LLM provider")
@@ -468,7 +468,7 @@ def main(ctx: typer.Context):
                 doctor()
             elif cmd in ("/dashboard", "dashboard"):
                 import webbrowser
-                url = "http://localhost:5173/"
+                url = "http://localhost:8000/"
                 console.print(f"[bold blue]Opening dashboard at:[/bold blue] {url}")
                 try:
                     webbrowser.open(url)

@@ -41,14 +41,13 @@ def calculate_scores(issues: List[Issue]) -> tuple[int, Dict[str, int]]:
         ded_sum += min(low_count * 2, 15)
         return ded_sum
 
-    overall_score = max(100 - get_deductions(issues), 0)
-    
     category_scores: Dict[str, int] = {}
     for cat in categories:
         cat_iss = category_issues.get(cat, [])
         score = max(100 - get_deductions(cat_iss), 0)
         category_scores[cat.lower()] = score
         
+    overall_score = int(sum(category_scores.values()) / len(categories))
     return overall_score, category_scores
 
 def run_summary_agent(issues: List[Issue], target_repo: str) -> str:
